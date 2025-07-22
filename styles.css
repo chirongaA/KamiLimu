@@ -1,6 +1,7 @@
-body {
+/* ========= GENERAL ========= */
+body { 
   font-family: sans-serif;
-  background-color: #0b0b0b;
+  background-color: #000;
   color: white;
   overflow: hidden;
   margin: 0;
@@ -14,41 +15,50 @@ h1 {
   margin-top: 10px;
 }
 
-#score {
+#score, #countStats {
   text-align: center;
   font-size: 1rem;
   color: cyan;
   margin-bottom: 10px;
 }
 
-#grid {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 150px);
+#countStats {
+  color: white;
+  margin-top: 8px;
 }
 
+/* ========= GRID LAYOUT ========= */
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
+  max-width: 960px;
+  margin: 20px auto 0 auto;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+/* ========= BOXES ========= */
 .box {
   background-color: #353535;
   border: 2px solid cyan;
-  border-radius: 8px;
-  width: 100px;
-  height: 100px;
+  border-radius: 12px;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: yellow;
   font-weight: bold;
+  font-size: 1.1rem;
   cursor: pointer;
-  position: absolute;
-  animation: float 4s ease-in-out infinite;
+  animation: pulseGlow 2.8s ease-in-out infinite;
+  box-shadow: 0 0 10px cyan;
+  transition: transform 0.2s;
 }
 
-@keyframes float {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(10px, -10px); }
-  50% { transform: translate(0, -5px); }
-  75% { transform: translate(-10px, -10px); }
-  100% { transform: translate(0, 0); }
+.box:hover:not(.disabled) {
+  transform: scale(1.05);
 }
 
 .box.disabled {
@@ -56,35 +66,72 @@ h1 {
   color: #555;
   border-color: #444;
   cursor: not-allowed;
+  animation: none;
 }
 
+/* ========= ANIMATIONS ========= */
+@keyframes float {
+  0%   { transform: translate(0px, 0px); }
+  50%  { transform: translate(5px, -10px); }
+  100% { transform: translate(-5px, 0px); }
+}
+
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 8px cyan; }
+  50%  { box-shadow: 0 0 20px 5px cyan; }
+  100% { box-shadow: 0 0 8px cyan; }
+}
+
+@keyframes pulseColor {
+  0%   { box-shadow: 0 0 10px 2px cyan; border-color: cyan; }
+  33%  { box-shadow: 0 0 18px 4px yellow; border-color: yellow; }
+  66%  { box-shadow: 0 0 20px 6px white; border-color: white; }
+  100% { box-shadow: 0 0 10px 2px cyan; border-color: cyan; }
+}
+
+@keyframes zoomIn {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ========= RESULT CARD ========= */
 #resultCard {
   background: white;
   color: black;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 30px;
+  border-radius: 16px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   display: none;
-  max-width: 300px;
+  max-width: 480px; 
+  min-height: 220px;
   text-align: center;
+  font-size: 1.1rem;
   z-index: 10;
+  animation: zoomIn 0.4s ease-out forwards; 
+  opacity: 0;
+}
+
+#resultCard p {
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 #resultCard button {
   margin-top: 15px;
   padding: 8px 12px;
   border: none;
-  background: cyan;
+  background: rgb(0, 255, 30);
   color: black;
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
 }
 
+/* ========= RESTART BUTTON ========= */
 #restartBtn {
   display: none;
   position: absolute;
@@ -99,4 +146,32 @@ h1 {
   border-radius: 6px;
   cursor: pointer;
   z-index: 5;
+}
+
+/* ========= CELEBRATION CARD ========= */
+#celebrationCard {
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 16px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  display: none;
+  max-width: 400px;
+  text-align: center;
+  font-size: 1.3rem;
+  z-index: 20;
+  animation: zoomIn 0.4s ease-out forwards;
+}
+
+#resultImage {
+  display: none;
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  margin: 0 auto 16px auto; /* centers horizontally with margin */
+  display: block;
 }
