@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unwrap the Metaphor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>🎁 Unwrap the Metaphor</h1>
+  <div id="score">Score: 0 | Remaining: 16</div>
+  <div id="grid"></div>
+
+  <div id="resultCard">
+    <h2 id="resultTitle"></h2>
+    <p id="resultText"></p>
+    <button onclick="closeCard()">OK</button>
+  </div>
+
+  <button id="restartBtn" onclick="restartGame()">🔄 Restart</button>
+
+  <audio id="winSound" src="win.mp3"></audio>
+  <audio id="loseSound" src="lose.mp3"></audio>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
+
