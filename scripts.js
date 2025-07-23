@@ -3,49 +3,49 @@ const metaphors = [
     type: 'win',
     content: " You as a Person",
     explanation: "Scholarship prep made me pause and ask: Why am I doing this? That inward journey reminded me that personal clarity is the first step toward opportunity.",
-    image: "images/self.avif"
+    image: "./images/self.avif"
   },
   {
     type: 'win',
     content: " Dr. C",
     explanation: "Like Dr. C, scholarship essays aren’t as rigid as they seem — formality and storytelling can coexist. That balance is what brings them to life.",
-    image: "images/dr-c.jpg"
+    image: "./images/dr-c.jpg"
   },
   {
     type: 'win',
     content: " Steelie",
     explanation: "A steelie is small but powerful. Even when I doubt myself, I’m learning that showing up, applying, and risking rejection is a power move.",
-    image: "images/steelie.jpg"
+    image: "./images/steelie.jpg"
   },
   {
     type: 'win',
     content: " Mirror",
     explanation: "I realized that the things I crave — connection, growth, peace — are mirrored in others too. We’re not as alone as we think.",
-    image: "images/mirror.png"
+    image: "./images/mirror.png"
   },
   {
     type: 'win',
     content: " Chapter",
     explanation: "Failure isn’t the whole story — just one chapter. And every chapter is a chance to rewrite the next with intention and strength.",
-    image: "images/chapter.jpg"
+    image: "./images/chapter.jpg"
   },
   {
     type: 'win',
     content: " Cactus Leaf",
     explanation: "Every problem looks spiky from the outside — but digging deeper helps reveal the real issue beneath. That’s where responsible solutions start.",
-    image: "images/cactus.jpg"
+    image: "./images/cactus.jpg"
   },
   {
     type: 'win',
     content: " Swiss Knife",
     explanation: "The most powerful tools in public speaking are small — a pause, a gesture, a smile. Like a Swiss knife, subtlety holds strength.",
-    image: "images/sknife.jpeg"
+    image: "./images/sknife.jpeg"
   },
   {
     type: 'win',
     content: " Chess Board",
     explanation: "Same pieces, same board — yet every speech is a new game. I’ve learned that storytelling evolves, and no script is ever final.",
-    image: "images/chess.jpg"
+    image: "./images/chess.jpg"
   }
 ];
 
