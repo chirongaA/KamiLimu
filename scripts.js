@@ -9,7 +9,7 @@ const metaphors = [
     type: 'win',
     content: " Dr. C",
     explanation: "Like Dr. C, scholarship essays aren’t as rigid as they seem — formality and storytelling can coexist. That balance is what brings them to life.",
-    image: "./images/dr-c.jpg"
+    image: "./images/DSC_6177.jpg"
   },
   {
     type: 'win',
